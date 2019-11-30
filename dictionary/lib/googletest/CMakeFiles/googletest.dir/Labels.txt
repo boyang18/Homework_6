@@ -1,0 +1,14 @@
+# Target labels
+ googletest
+# Source files and their labels
+/home/boyang18/HW_6/dictionary/lib/googletest/CMakeFiles/googletest
+/home/boyang18/HW_6/dictionary/lib/googletest/CMakeFiles/googletest.rule
+/home/boyang18/HW_6/dictionary/lib/googletest/CMakeFiles/googletest-complete.rule
+/home/boyang18/HW_6/dictionary/lib/googletest/googletest-prefix/src/googletest-stamp/googletest-install.rule
+/home/boyang18/HW_6/dictionary/lib/googletest/googletest-prefix/src/googletest-stamp/googletest-mkdir.rule
+/home/boyang18/HW_6/dictionary/lib/googletest/googletest-prefix/src/googletest-stamp/googletest-download.rule
+/home/boyang18/HW_6/dictionary/lib/googletest/googletest-prefix/src/googletest-stamp/googletest-update.rule
+/home/boyang18/HW_6/dictionary/lib/googletest/googletest-prefix/src/googletest-stamp/googletest-patch.rule
+/home/boyang18/HW_6/dictionary/lib/googletest/googletest-prefix/src/googletest-stamp/googletest-configure.rule
+/home/boyang18/HW_6/dictionary/lib/googletest/googletest-prefix/src/googletest-stamp/googletest-build.rule
+/home/boyang18/HW_6/dictionary/lib/googletest/googletest-prefix/src/googletest-stamp/googletest-test.rule

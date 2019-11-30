@@ -124,7 +124,19 @@ public:
 
     bool contain(KeyType const &key) override {
         // homework
+        if (key<0){
+            return false;
+        }
+        int hashedKey = hashFunc(key);
+        Entry<KeyType, ValueType> *ptr = entries[hashedKey];
+        while (ptr != nullptr) {
+            if (ptr->key == key) {
+                return true;
+            }
+            ptr = ptr->next;
+        }
         return false;
+
     }
 
     void traverse() override {
@@ -133,6 +145,41 @@ public:
 
     bool remove(KeyType const &key) override {
         // homework
-        return false;
+        int hashedKey = hashFunc(key);
+        bool deleted = false;
+        Entry<KeyType, ValueType> *ptr1 = entries[hashedKey];
+        Entry<KeyType, ValueType> *ptr2 = ptr1;
+
+        //Empty list
+        if (entries[hashedKey] == nullptr) return false;
+
+        //Front match
+        while (ptr1 != nullptr && ptr1->key == key) {
+            ptr2=ptr2->next;
+            entries[hashedKey] = ptr2;
+            ptr1->next = nullptr;
+            delete ptr1;
+            ptr1 = ptr2;
+            deleted = true;
+        }
+        if (ptr1 == nullptr) {
+            return deleted;
+        }
+
+        ptr2 = ptr2->next;
+        while (ptr2 != nullptr) {
+            if (ptr2->key == key) {
+                ptr1->next = ptr2->next;
+                ptr2->next = nullptr;
+                delete ptr2;
+                ptr2 = ptr1->next;
+                deleted = true;
+            }
+            else {
+                ptr1 = ptr1->next;
+                ptr2 = ptr2->next;
+            }
+        }
+        return deleted;
     }
 };
