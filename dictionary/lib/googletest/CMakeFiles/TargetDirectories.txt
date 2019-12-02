@@ -1,3 +1,0 @@
-/home/boyang18/HW_6/dictionary/lib/googletest/CMakeFiles/rebuild_cache.dir
-/home/boyang18/HW_6/dictionary/lib/googletest/CMakeFiles/googletest.dir
-/home/boyang18/HW_6/dictionary/lib/googletest/CMakeFiles/edit_cache.dir
