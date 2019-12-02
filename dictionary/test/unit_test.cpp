@@ -118,49 +118,57 @@ TEST(dict, contain) {
 
 TEST(dict, remove) {
     // homework
-    //set 1:
+    //set 1: empty dictionary
     ArrayDictionary<int, int> hashTableEmpty;
-ASSERT_FALSE(hashTableEmpty.remove(-1));
-ASSERT_FALSE(hashTableEmpty.remove(0));
-ASSERT_FALSE(hashTableEmpty.remove(1));
+    ASSERT_FALSE(hashTableEmpty.remove(-1));
+    ASSERT_FALSE(hashTableEmpty.remove(0));
+    ASSERT_FALSE(hashTableEmpty.remove(1));
 
-//set 2:
-ArrayDictionary<int, int> hashTable1(1);
-ASSERT_TRUE(hashTable1.add(0,103));
-ASSERT_TRUE(hashTable1.remove(0));
-ASSERT_FALSE(hashTable1.remove(2));
+    //set 2: key exists in a dictionary that has no collision
+    ArrayDictionary<int, int> hashTable1(1);
+    ASSERT_TRUE(hashTable1.add(0,103));
+    ASSERT_FALSE(hashTable1.remove(2));
+    ASSERT_TRUE(hashTable1.remove(0));
 
-//set 3:
-ArrayDictionary<int, int> hashTable2(2);
-ASSERT_TRUE(hashTable2.add(0,103));
-ASSERT_TRUE(hashTable2.add(1,105));
-ASSERT_TRUE(hashTable2.remove(0));
-ASSERT_TRUE(hashTable2.remove(1));
-ASSERT_FALSE(hashTable2.remove(2));
-ASSERT_FALSE(hashTable2.remove(3));
 
-//set 4
-ArrayDictionary<int, int> hashTable3(3);
-ASSERT_TRUE(hashTable3.add(0,103));
-ASSERT_TRUE(hashTable3.add(1,105));
-ASSERT_FALSE(hashTable3.remove(3));
-ASSERT_TRUE(hashTable3.add(2,206));
-ASSERT_TRUE(hashTable3.remove(1));
+    //set 3: key does not exists in a dictionary that has no collision
+    ArrayDictionary<int, int> hashTable2(2);
+    ASSERT_TRUE(hashTable2.add(0,103));
+    ASSERT_TRUE(hashTable2.add(1,105));
+    ASSERT_TRUE(hashTable2.remove(0));
+    ASSERT_TRUE(hashTable2.remove(1));
+    ASSERT_FALSE(hashTable2.remove(2));
+    ASSERT_FALSE(hashTable2.remove(3));
 
-//set 5
-ArrayDictionary<int, int> hashTable4(3);
-ASSERT_TRUE(hashTable4.add(0,103));
-ASSERT_TRUE(hashTable4.add(1,105));
-ASSERT_TRUE(hashTable4.add(2,206));
-ASSERT_TRUE(hashTable4.add(4,407));
-#ifdef PRINT
-hashTable4.print();
-#endif
-ASSERT_TRUE(hashTable4.remove(4));
-ASSERT_TRUE(hashTable4.remove(1));
-ASSERT_FALSE(hashTable4.remove(7));
-ASSERT_FALSE(hashTable4.remove(8));
-#ifdef PRINT
-hashTable4.print();
-#endif
+    //set 4: key exists in a dictionary that has collision, key is in the collision.
+    ArrayDictionary<int, int> hashTable3(3);
+    ASSERT_TRUE(hashTable3.add(0,103));
+    ASSERT_TRUE(hashTable3.add(1,105));
+    ASSERT_FALSE(hashTable3.remove(3));
+    ASSERT_TRUE(hashTable3.add(2,206));
+    ASSERT_TRUE(hashTable3.add(3,306));
+    #ifdef PRINT
+    hashTable3.print();
+    #endif
+    ASSERT_TRUE(hashTable3.remove(3));
+    #ifdef PRINT
+    hashTable3.print();
+    #endif
+
+    //set 5
+    ArrayDictionary<int, int> hashTable4(3);
+    ASSERT_TRUE(hashTable4.add(0,103));
+    ASSERT_TRUE(hashTable4.add(1,105));
+    ASSERT_TRUE(hashTable4.add(2,206));
+    ASSERT_TRUE(hashTable4.add(4,407));
+    #ifdef PRINT
+    hashTable4.print();
+    #endif
+    ASSERT_TRUE(hashTable4.remove(4));
+    ASSERT_TRUE(hashTable4.remove(1));
+    ASSERT_FALSE(hashTable4.remove(7));
+    ASSERT_FALSE(hashTable4.remove(8));
+    #ifdef PRINT
+    hashTable4.print();
+    #endif
 }

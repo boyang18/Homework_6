@@ -47,6 +47,7 @@ TEST(sudoku, case1) {
     sudoku.print();
     sudoku.solve();
     ASSERT_TRUE(sudoku==answer);
+    sudoku.print();
 }
 
 TEST(sudoku, case2) {
@@ -123,6 +124,8 @@ int answer[9][9] = {{8, 5, 9, 6, 1, 2, 4, 3, 7},
                     {5, 9, 8, 7, 3, 6, 2, 4, 1}};
 
 Sudoku sudoku(grid);
+sudoku.print();
 sudoku.solve();
 ASSERT_TRUE(sudoku==answer);
+sudoku.print();
 }

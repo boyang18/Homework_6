@@ -120,6 +120,7 @@ public:
             }
             printf("}\n");
         }
+        printf("=====================================\n");
     }
 
     bool contain(KeyType const &key) override {
@@ -145,7 +146,7 @@ public:
 
     bool remove(KeyType const &key) override {
         // homework
-        if (key<0){
+        if (key < 0) {
             return false;
         }
         int hashedKey = hashFunc(key);
@@ -157,21 +158,20 @@ public:
         }
         Entry<KeyType, ValueType> *ptr1 = entries[hashedKey];
         Entry<KeyType, ValueType> *ptr2 = nullptr;
+
         while (ptr1 != nullptr) {
-            // update value if key already exists
             if (ptr1->key == key) {
-                if (ptr2 == nullptr){
-                    entries[hashedKey]=ptr1->next;
-                }
-                else{
-                    ptr2->next=ptr1->next;
+                if (ptr2 == nullptr) {
+                    entries[hashedKey] = ptr1->next;
+                } else {
+                    ptr2->next = ptr1->next;
+
                 }
                 removed = true;
             }
-            ptr2=ptr1;
+            ptr2 = ptr1;
             ptr1 = ptr1->next;
         }
         return removed;
     }
-
 };
